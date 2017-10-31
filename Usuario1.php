@@ -71,6 +71,7 @@ function ImprimirDatosUsuario(){
           curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
           
           curl_exec($ch);
+          
           if (!curl_errno($ch)) {
             switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
               case 200: #OK
@@ -79,11 +80,10 @@ function ImprimirDatosUsuario(){
                 break;
               case 404: echo 'Not found';
                 break;
-              case 412: echo 'Usuario ya existe';
-                break;
               default: echo 'Código http inesperado: ', $http_code, "\n";
             }
           }
+          
           curl_getinfo($ch, CURLINFO_HTTP_CODE);
           
           curl_close($ch);
