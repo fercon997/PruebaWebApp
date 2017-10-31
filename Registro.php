@@ -9,9 +9,15 @@
 <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"/> <!--font-family: 'Space Mono', monospace;-->
 <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet"/> <!--font-family: 'Megrim', cursive;-->
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/> <!--font-family: 'Roboto', sans-serif;-->
-
+<script src="https://use.fontawesome.com/5643167d36.js"></script>
+<style type="text/css">
+  .error{
+    color: red;
+  }
+</style>
 
 <!--hojas de estilo-->
+<!--<link rel="stylesheet" href="estilos.css"/>-->
 <link rel ="Stylesheet" href="estilos.css"/>
 <!--aqui hay dos hojas, una para las pruebas y otra que se puede usar-->
 
@@ -26,45 +32,57 @@
 
 
 <?php
-  $nameErr = $passwordErr = $password2Err ="";
+  $nameErr = $namepErr = $apellidoErr =$passwordErr = $password2Err ="";
   $nombrep = $apellido =$nombre = $email = $pass = $pass2 = $genero = "";
   $edad = 0;
-
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     $edad = (int) $_POST["edad_usuario"];
     $email = $_POST["email_usuario"];
     $genero = $_POST["genero_usuario"];
-    $nombrep = $_POST["nombre_persona"];
-    $apellido = $_POST["apellido_persona"];
-    $nacimiento = $_POST["fecha_nacimiento"];
+    if(empty($_POST["nombre_persona"])){
+      $namepErr = "Se requiere su nombre";
+    } else{
+      $nombrep = comprobar($_POST["nombre_persona"],$namepErr);
+    }
 
-
+    if(empty($_POST["apellido_persona"])){
+      $apellidoErr = "Se requiere su apellido";
+    } else{
+      $apellido = comprobar($_POST["apellido_persona"],$apellidoErr);
+    }
 
     if(empty($_POST["nombre_usuario"])){
       $nameErr = "Se requiere un nombre de usuario";
     } else{
-      $nombre = comprobar($_POST["nombre_usuario"]);
+      $nombre = comprobar($_POST["nombre_usuario"], $nameErr);
     }
     if (empty($_POST["contrasena_usuario"])){
       $passwordErr = "Se requiere una contraseña";
     } else{
-      $pass = comprobar($_POST["contrasena_usuario"]);
+      $pass = comprobar($_POST["contrasena_usuario"], $passwordErr);
     }
     if(empty($_POST["contrasena_usuario_repetir"])){
       $password2Err = "Se requiere que repita la contraseña";
     } else{
-      $pass2 = comprobar($_POST["contrasena_usuario_repetir"]);
+      $pass2 = comprobar($_POST["contrasena_usuario_repetir"], $password2Err);
+      $password2Err = validarContrasenas($_POST["contrasena_usuario"],$_POST["contrasena_usuario_repetir"]);
     }
   }
-
-
-  function comprobar($dato){
+  function comprobar($dato, &$err){
     if(strlen($dato) <= 50){
-      return $dato;
+      $err = "";
+    } else{
+    $err = "El campo no puede ser mayor a 50 caracteres";
     }
-    return "";
   }
 
+  function validarContrasenas($contra1, $contra2, &$err){
+    if($contra1 === $contra2){
+      return "";
+    } else{
+      return "Las contrasenas no coinciden";
+    }
+  }
 ?>
 
 

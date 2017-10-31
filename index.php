@@ -14,20 +14,17 @@
   <!--<div id="logo">-->
     <img class="logo" src="Logo.jpg">
   <!--</div>-->
-
-	<?php
-    $url = '';
-    if ( isset($_POST['registrar']) )
-     $url = '/registrar_usuario';
-    if ( isset($_POST['Inicio']) )
-     $url = '/login';
-    //header("Location: $url");
-  ?>
-
-  <form method="GET">
-		<button formaction="/registrar" name="submit" class="boton" value="registrar">Registrar Usuario</button>
-    <br>
-    <input formaction="/login" name="sumbit" type="submit" class="boton" value="Iniciar Sesion"/> <br>
+  <form  action="index.php" method="POST">
+   <input name="Registro" type="submit" class="boton" value="Registrar Usuario"/> <br>
+    <input name="Inicio" type="submit" class="boton" value="Iniciar Sesion"/> <br>
  </form>
+ <?php
+   $url = '';
+   if ( isset($_POST['Registro']) )
+    $url = 'Registro.php';
+   if ( isset($_POST['Inicio']) )
+    $url = 'Inicio.php';
+   header("Location: $url");
+ ?>
 </body>
 </html>
