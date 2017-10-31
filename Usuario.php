@@ -1,7 +1,5 @@
 <?php
-
 class Usuario{
-
 //atributos
   private $id;
   private $edad;
@@ -11,10 +9,8 @@ class Usuario{
   private $genero;
   private $nombrep;
   private $apellido;
-
 //constructor
  function Usuario($nombrep, $apellido, $id,$edad,$contrasena,$contrasena2,$email,$nacimiento, $genero){
-
      $this->nombrep = $nombrep;
      $this->apellido = $apellido;
      $this->id = $id; // $post es una variable superglobal de psp (array)
@@ -24,13 +20,11 @@ class Usuario{
      $this->email= $email;
      $this->nacimiento= $nacimiento;
      $this->genero= $genero;
-
      /*con las dos lineas de codigo anteriores lo que estamos haciendo es
       *asignarle a una variable local de php lo que el usuario introdujo
       *en el nombre_usuario, que es almacenado automaticamente en el
       *$POST_*/
 }
-
 //metodos
 function ImprimirDatosUsuario(){
   echo "<br><br>Lo que se registro:";
@@ -42,44 +36,38 @@ function ImprimirDatosUsuario(){
   echo "<br> Nacimiento: ".$this->nacimiento."<br>";
   echo "<br> Genero del usuario: ".$this->genero."<br>";
 }
-
-
-
         function getnombre(){
-        	return $this->nombre;
+          return $this->nombre;
         }
         function getedad(){
-        	return $this->edad;
+          return $this->edad;
         }
         function getcontrasena(){
-        	return $this->contrasena;
+          return $this->contrasena;
         }
         function getcontrasena_2(){
-        	return $this->contrasena_2;
+          return $this->contrasena_2;
         }
         function getemail(){
-        	return $this->email;
+          return $this->email;
         }
         function getnacimiento(){
-        	return $this->nacimiento;
+          return $this->nacimiento;
         }
         function getgenero(){
-        	return $this->genero;
+          return $this->genero;
         }
-
         function transformToJson(){
           $data = array(
             'email' => $this->email,
-            'username' => $this->nombre,
+            'username' => $this->id,
             'password' => $this->contrasena,
             'nombre' => $this->nombrep,
             'apellido' => $this->apellido,
             'fechaDeNacimiento' => $this->nacimiento
           );
-
           $json = json_encode($data);
-          $url = 'https://intense-lake-39874.herokuapp.com/usuarios';
-
+          $url = 'https://intense-lake-39874.herokuapp.com//usuarios';
           //Iniciar cURL
           $ch = curl_init($url);
           //Decir a curl que se quiere mandar un POST
@@ -89,9 +77,6 @@ function ImprimirDatosUsuario(){
           //Configurar el content type a application/json
           curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
           $result = curl_exec($ch);
-
         }
-
 }
-
 ?>

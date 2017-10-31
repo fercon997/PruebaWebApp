@@ -3,16 +3,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Done!</title>
+<title>Done! - Iniciar Sesión</title>
 
 <!--fuentes de google-->
 <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/> <!--font-family: 'Quicksand', sans-serif;-->
 <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"/> <!--font-family: 'Space Mono', monospace;-->
 <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet"/> <!--font-family: 'Megrim', cursive;-->
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/> <!--font-family: 'Roboto', sans-serif;-->
-<!--<link rel ="stylesheet" href="estilos.css"/>-->
-<link rel="stylesheet" href="estilos2.css"/>
+
+<!--Hojas de estilo-->
+<link rel ="stylesheet" href="estilos.css"/>
 <!--aqui hay dos hojas, una para las pruebas y otra que se puede usar-->
+<!--<link rel="stylesheet" href="estilos3.css"/>-->
 
 
 
@@ -20,58 +22,65 @@
 
 <body>
 
-<h1>Ejemplo de inicio</h1> <!--titulo-->
+  <!-- <img class="logo" src="Logo.jpg">-->
 
-<h2>Inicia sesi&oacuten</h2>
+   <h1>Ejemplo de Inicio</h1> <!--titulo-->
 
-<!---inicia el formulario------------------------------->
-<form method="post" name="datos_usuario" id="datos_usuario" autocomplete="off">
+   <h2>Entrar</h2>
+<!---inicia el formulario-->
 
-  <table align = "center">
+<!--<form method="post" name="datos_usuario" id="datos_usuario" autocomplete="off">-->
+
+  <form  action="Inicio.php" method="POST">
+   <table align = "right">
     <tr>
-      <td id ="identificadorentrada">Nombre de usuario</td>
+      <td id ="identificadorentrada">Nombre de Usuario</td>
       <td><label for="nombre_usuario"></label>
-      <input type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Elija nombre de usuario"></td>
+      <input type="text" name="nombre_usuario" id="nombre_usuario"  placeholder="Usuario" autocomplete="off"></td>
     </tr>
-
     <tr>
       <td id ="identificadorentrada">Contraseña</td>
       <td><label for="contrasena_usuario"></label>
-      <input type="password" name="contrasena_usuario" id="constrasena_usuario" placeholder="Elija constraseña"></td>
+      <input type="password" name="contrasena_usuario" id="constrasena_usuario"  placeholder="Constraseña" autocomplete="off"></td>
     </tr>
 
     <tr>
 			<td>&nbsp;</td> <!--&nbsp crea un espacio horizontal-->
-      <td>&nbsp;</td> <!--&nbsp crea un espacio horizontal-->
+      <td>&nbsp;</td>
     </tr>
 
-    <tr>
-      <td colspan="2" align="center"><input type="submit"  name="enviando" id="enviando" value="Entrar"></td>
-    </tr>
+  <tr>
+  <td colspan="2" align="center"><input name="enviando" type="submit" class="boton" value="Entra"/> <td>
+  </tr>
 
-  </table>
+</table>
 
 </form>
+
 <!---termina el formulario de inicio-->
 
-<h3>Done</h3>
+
+<h3>Done!</h3>
+
+<ul>
+
+<li><img id ="icono" src="cloud.svg" height="40" width="40"/><b id="descripcion_icon">Si ya tienes una cuenta inicia sesión para ver tus tareas.</b></li>
+<li><img id ="icono" src="smartphone.svg" height="40" width="40"/><b id="descripcion_icon">Disponible en dispositivos Android.</b></li>
+
+</ul>
+
+
+
 
 <?php
-
  include ("Usuario.php");
  include ("Validador.php");
-
-
  $validador = new Validador("usuarios.json");
-
  if (isset($_POST["enviando"])) {$nombre=$_POST["nombre_usuario"];
-
-
  if ($validador->validarinicio($nombre)){
    echo "<p class='validado'> Puedes entrar </p>";
  }
  else echo "<p class='no_validado'> No puedes entrar </p>";
-
 }
 ?>
 
