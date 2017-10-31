@@ -49,7 +49,7 @@
   <div id="logo">
     <img src="Logo.jpg">
   </div>
-  <form  action="PantallaInicio.php" method="POST">
+  <form  action="index.php" method="POST">
    <input name="Registro" type="submit" class="boton" value="Registrar Usuario"  /> <br>
     <input name="Inicio" type="submit" class="boton" value="Iniciar Sesion"/> <br>
  </form>
