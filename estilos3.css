@@ -1,0 +1,52 @@
+#fondo{
+	/* Ubicación de la imagen */
+	background-image: url(fondo.svg);
+	/* Para dejar la imagen de fondo centrada, vertical y
+	horizontalmente */
+	background-position: center center;
+	/* Para que la imagen de fondo no se repita */
+	background-repeat: no-repeat;
+	/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+	background-attachment: fixed;
+	/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+	background-size: cover;
+	/* Se muestra un color de fondo mientras se está cargando la imagen
+	de fondo o si hay problemas para cargarla */
+	background-color: #66999;
+	width: 100%;
+	height: 700px;
+
+}
+.boton{
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  font-family: Arial;
+  color: #1f0b1f;
+  font-size: 41px;
+  background: #5d96ab;
+  padding: 21px 20px 16px 20px;
+  text-decoration: none;
+  margin: 5px;
+  position: relative;
+  left: 38%;
+  top: 150px;
+  display: block;
+}
+.boton:hover{
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #144b70);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #144b70);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #144b70);
+  background-image: -o-linear-gradient(top, #3cb0fd, #144b70);
+  background-image: linear-gradient(top, bottom, #3cb0fd, #144b70);
+  text-decoration: none;
+}
+#img{
+  width: 20%;
+  height: 10%;
+}
+#logo{
+  position: relative;
+  left: 38%;
+}
