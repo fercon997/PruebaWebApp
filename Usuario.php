@@ -78,7 +78,7 @@ function ImprimirDatosUsuario(){
           );
 
           $json = json_encode($data);
-          $url = 'http://localhost:3000/usuarios';
+          $url = 'https://intense-lake-39874.herokuapp.com//usuarios';
 
           //Iniciar cURL
           $ch = curl_init($url);
