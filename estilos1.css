@@ -79,9 +79,9 @@ footer {
   background-color: #555;
 }
 
-footer img {
-  width: 30%;
+.img-google-play {
+  padding: 30px;
+  margin: 0 auto !important;
+  width: 500px;
   height: auto;
-  margin: 0 auto;
-  padding: 50px;
 }

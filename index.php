@@ -3,6 +3,9 @@
 <html>
 
 <head>
+ 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
   <title>Done!</title>
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
@@ -37,13 +40,13 @@
      
      <li><i class="fa fa-sort-amount-asc fa-3x izq" aria-hidden="true"></i>Organiza tus tareas</li>
      <li>No olvides tus cosas por hacer <i class="fa fa-ban fa-3x der" aria-hidden="true"></i></li>
-     <li><i class="fa fa-cloud-upload fa-3x izq" aria-hidden="true"></i>Tus tareas se mantienen en la nuve</li>
+     <li><i class="fa fa-cloud-upload fa-3x izq" aria-hidden="true"></i>Tus tareas se mantienen en la nube</li>
      <li>Lleva tus tareas contigo <i class="fa fa-map-pin fa-3x der" aria-hidden="true"></i></li>
     </ul>
   </section>
   
   <footer>
-    <a href="#"><img src="google-play-badge.png" class="img-responsive"/></a>
+    <a href="app-release.apk"><img src="google-play-badge.png" class="img-google-play"/></a>
   </footer>
   <?php
    $url = '';
